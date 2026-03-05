@@ -61,10 +61,9 @@ that avoids a $420,800 unplanned shutdown.
 - MLflow ChatAgent backed by Claude Sonnet 4.6 (`databricks-claude-sonnet-4-6` endpoint)
 - LangGraph ReAct agent with 6 UC Function tools
 - Registered to `utility_ops.asset_intelligence.maintenance_agent` ✅
-- Model Serving endpoint: `maintenance-agent-endpoint` — deployed, working through versions:
-  - v1–v2: cloudpickle serialization failures → fixed with MLflow code-based logging
-  - v3: `UCFunctionToolkit` auth failure → fixed by adding `DatabricksFunctionClient`
-  - v4+: in progress
+- Model Serving endpoint: `maintenance-agent-endpoint` ✅ **LIVE AND WORKING**
+- Agent successfully calls all 5 read tools against live data ✅
+- `upsert_recommendation` requires Lakebase env vars on the serving endpoint (see below)
 
 **Key fixes applied during agent deployment**:
 - Switched from object-based to code-based MLflow logging (`python_model=Path(file)`)
@@ -72,27 +71,35 @@ that avoids a $420,800 unplanned shutdown.
 - `ChatAgentMessage` requires `id=str(uuid.uuid4())` field
 - `MLflow ChatAgent.predict` signature: `(self, messages, context=None, custom_inputs=None)`
   — messages is first, not context
-- `UCFunctionToolkit` requires explicit `DatabricksFunctionClient` client on serving endpoint
+- `UCFunctionToolkit` requires explicit `DatabricksFunctionClient` with `WorkspaceClient` and
+  `warehouse_id` — env vars `DATABRICKS_HOST`, `DATABRICKS_TOKEN`, `DATABRICKS_WAREHOUSE_ID`
+  must be set on the serving endpoint
 - `LIMIT param` in UC SQL UDFs is unfoldable — use `ROW_NUMBER() OVER (...) WHERE rn <= param`
 - Python TVFs in UC require class-based HANDLER — workaround: return JSON string (scalar UDF)
 - `wait_timeout` in Databricks SDK statement execution: must be `0s` or `5s–50s` (not `60s`)
 - `DEFAULT` column values in Delta tables require feature flag — omit DEFAULT instead
 - Lakebase `.env` uses `LAKEBASE_DATABASE=databricks_postgres` (not `maintenance_ops`)
+- Lakebase JWT password expires hourly — use PAT (`dapi...`) for stable connections
 
-### Phase 4 — Control Tower (App) 🔄 In Progress
+**To enable upsert_recommendation on serving endpoint**, add to Model Serving env vars:
+  `LAKEBASE_HOST`, `LAKEBASE_PORT`, `LAKEBASE_DATABASE`, `LAKEBASE_USER`, `LAKEBASE_PASSWORD`
 
-- `app/control_tower_app.py` — Streamlit app written:
-  - Floor map: 22 assets colour-coded by risk level (live from Lakebase)
-  - Active alerts panel with "Ask AI →" quick-action buttons
-  - AI chat interface routing to `maintenance-agent-endpoint`
-  - Cost comparison table (planned vs. unplanned failure cost)
-  - Mock data fallback if Lakebase is unreachable
-- `app/app.yaml` — Databricks App deployment manifest
+### Phase 4 — Control Tower (App) ✅
+
+- `app/control_tower_app.py` — Streamlit app running locally ✅
+  - Floor map: 22 assets colour-coded by risk level (live from Lakebase) ✅
+  - Active alerts panel with "Ask AI →" quick-action buttons ✅
+  - AI chat: returns real agent responses with live tool call data ✅
+  - Cost comparison table ✅
+  - Mock data fallback if Lakebase is unreachable ✅
+- `app/app.yaml` — Databricks App deployment manifest ✅
+- Agent response format fix: use `mlflow.deployments.get_deploy_client("databricks")`
+  and `response["messages"][-1]["content"]` — ChatAgent returns `messages`, not `choices`
 
 **Remaining steps**:
-- [ ] Verify `maintenance-agent-endpoint` is fully operational (current version resolving UCFunctionToolkit auth)
-- [ ] Run app locally: `streamlit run app/control_tower_app.py`
-- [ ] Deploy to Databricks Apps
+- [ ] Add Lakebase env vars to `maintenance-agent-endpoint` serving endpoint (for upsert_recommendation)
+- [ ] Deploy to Databricks Apps: `databricks apps create maintenance-control-tower` then `databricks apps deploy`
+- [ ] Configure Lakebase secrets in Apps UI after deployment
 
 ### Phase 3 (Genie) — Pending
 
@@ -127,5 +134,8 @@ Lakebase DB:    databricks_postgres
 | `LIMIT param` is unfoldable in UC SQL UDFs | SQL planner can't fold parameterized LIMIT | Use `ROW_NUMBER() OVER (...) WHERE rn <= param` |
 | MLflow `wait_timeout` invalid | SDK max is 50s | Change `"60s"` → `"50s"` |
 | Delta `DEFAULT` column values fail | `delta.feature.allowColumnDefaults` not enabled | Omit DEFAULT from CREATE TABLE |
-| `UCFunctionToolkit` no client error | Requires explicit `DatabricksFunctionClient` | Pass `client=DatabricksFunctionClient()` |
+| `UCFunctionToolkit` no client error | Requires explicit `DatabricksFunctionClient` | `DatabricksFunctionClient(warehouse_id=..., client=WorkspaceClient(host, token))` |
+| `DatabricksFunctionClient` auth failure on serving endpoint | No default credentials in serving env | Pass explicit `WorkspaceClient(host=DATABRICKS_HOST, token=DATABRICKS_TOKEN)` |
 | `azure` module missing for MLflow artifact upload | Azure workspace needs `mlflow[databricks]` | `pip install "mlflow[databricks]"` |
+| App returns "list index out of range" querying agent | ChatAgent returns `{"messages":[...]}` not `{"choices":[...]}` | Use `mlflow.deployments.get_deploy_client` + `response["messages"][-1]["content"]` |
+| Lakebase connection "Invalid authorization" | JWT token expired (1h TTL) | Use PAT (`dapi...`) as `LAKEBASE_PASSWORD` for stable connections |
