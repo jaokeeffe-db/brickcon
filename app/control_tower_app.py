@@ -26,8 +26,6 @@ from datetime import datetime
 import psycopg2
 import psycopg2.extras
 import streamlit as st
-from databricks.sdk import WorkspaceClient
-from databricks.sdk.service.serving import ChatMessage, ChatMessageRole
 
 # ---------------------------------------------------------------------------
 # Page configuration
@@ -213,20 +211,18 @@ def _mock_disruptions() -> list[dict]:
 def query_agent(user_message: str, history: list[dict]) -> str:
     """Send a message to the Mosaic AI maintenance agent endpoint."""
     try:
-        client = WorkspaceClient()
-        messages = [
-            ChatMessage(role=ChatMessageRole.USER if m["role"] == "user" else ChatMessageRole.ASSISTANT,
-                       content=m["content"])
-            for m in history
-        ]
-        messages.append(ChatMessage(role=ChatMessageRole.USER, content=user_message))
+        from mlflow.deployments import get_deploy_client
+        client = get_deploy_client("databricks")
 
-        response = client.serving_endpoints.query(
-            name=AGENT_ENDPOINT,
-            messages=messages,
-            max_tokens=2048,
+        messages = [{"role": m["role"], "content": m["content"]} for m in history]
+        messages.append({"role": "user", "content": user_message})
+
+        response = client.predict(
+            endpoint=AGENT_ENDPOINT,
+            inputs={"messages": messages},
         )
-        return response.choices[0].message.content
+        # ChatAgent response format: {"messages": [{"role": "assistant", "content": "..."}]}
+        return response["messages"][-1]["content"]
     except Exception as e:
         return (
             f"**Demo mode** — Agent endpoint not yet deployed.\n\n"
@@ -419,7 +415,7 @@ def main():
         with chat_container:
             if not st.session_state["messages"]:
                 st.markdown(
-                    "_Ask me anything — e.g. "Motor 4 is vibrating. Should I stop Line 1?"_"
+                    '_Ask me anything — e.g. "Motor 4 is vibrating. Should I stop Line 1?"_'
                 )
             for msg in st.session_state["messages"]:
                 with st.chat_message(msg["role"]):
