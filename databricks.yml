@@ -1,0 +1,129 @@
+# Databricks Asset Bundle (DAB) configuration
+# Enables repeatable, code-based deployment of all project assets.
+#
+# Usage:
+#   databricks bundle validate          # Validate configuration
+#   databricks bundle deploy            # Deploy all resources
+#   databricks bundle run pipeline_run  # Trigger the pipeline
+#   databricks bundle run sync_job      # Run the Lakebase sync job
+#
+# Prerequisites:
+#   - Databricks CLI v0.221+
+#   - Authenticated: databricks auth login
+#   - Unity Catalog enabled on target workspace
+
+bundle:
+  name: maintenance-control-tower
+
+variables:
+  catalog:
+    default: utility_ops
+  schema:
+    default: asset_intelligence
+  cluster_policy:
+    default: "Personal Compute"
+
+workspace:
+  host: ${var.DATABRICKS_HOST}
+
+targets:
+  dev:
+    mode: development
+    default: true
+    workspace:
+      host: ${var.DATABRICKS_HOST}
+
+  prod:
+    mode: production
+    workspace:
+      host: ${var.DATABRICKS_HOST}
+
+# ---------------------------------------------------------------------------
+# Resources
+# ---------------------------------------------------------------------------
+
+resources:
+
+  # --- Lakeflow Declarative Pipeline (Bronze → Silver → Gold) ---
+  pipelines:
+    asset_health_pipeline:
+      name: asset_health_pipeline
+      catalog: ${var.catalog}
+      target: ${var.schema}
+      channel: PREVIEW
+      development: true  # Set to false for prod target
+      libraries:
+        - file:
+            path: pipelines/lakeflow_pipeline.py
+      configuration:
+        # Workspace-level config for the pipeline
+        spark.databricks.delta.preview.enabled: "true"
+      serverless: true  # Use serverless compute for cost efficiency
+
+  # --- Jobs ---
+  jobs:
+
+    # Lakebase sync job — runs after each pipeline completion
+    lakebase_sync_job:
+      name: lakebase_sync_job
+      description: "Syncs Gold layer health scores from Unity Catalog to Lakebase after each pipeline run."
+      tasks:
+        - task_key: sync_health_scores
+          python_wheel_task:
+            package_name: brickcon
+            entry_point: lakebase_sync
+          environment_key: default
+          libraries:
+            - pypi:
+                package: "psycopg2-binary>=2.9"
+            - pypi:
+                package: "databricks-connect==15.4.*"
+      environments:
+        - environment_key: default
+          spec:
+            client: "3"
+      # Trigger: after asset_health_pipeline completes
+      # (Wire this up manually in the UI or use a pipeline trigger)
+      schedule:
+        quartz_cron_expression: "0 */10 * * * ?"  # Every 10 minutes
+        timezone_id: "UTC"
+
+    # Mock data pipeline job — run once to seed the demo
+    data_seed_job:
+      name: data_seed_job
+      description: "One-time job to generate mock data and upload to Unity Catalog Volumes."
+      tasks:
+        - task_key: generate_and_upload
+          python_wheel_task:
+            package_name: brickcon
+            entry_point: data_seed
+          environment_key: default
+      environments:
+        - environment_key: default
+          spec:
+            client: "3"
+
+  # --- Databricks App ---
+  apps:
+    maintenance_control_tower:
+      name: maintenance-control-tower
+      description: "Maintenance Control Tower — Streamlit app for plant floor visibility and AI-assisted repair planning."
+      source_code_path: ./app
+      config:
+        command:
+          - "streamlit"
+          - "run"
+          - "app/control_tower_app.py"
+          - "--server.port=8080"
+          - "--server.address=0.0.0.0"
+          - "--server.headless=true"
+        env:
+          - name: AGENT_ENDPOINT_NAME
+            value: "maintenance-agent-endpoint"
+          - name: UC_CATALOG
+            value: ${var.catalog}
+        resources:
+          - name: maintenance-agent-endpoint
+            serving_endpoint:
+              name: maintenance-agent-endpoint
+              permission: CAN_QUERY

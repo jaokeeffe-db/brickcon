@@ -1,0 +1,40 @@
+# Databricks App deployment manifest for Maintenance Control Tower
+# Deploy via: databricks apps deploy maintenance-control-tower
+
+command:
+  - "streamlit"
+  - "run"
+  - "app/control_tower_app.py"
+  - "--server.port"
+  - "8080"
+  - "--server.address"
+  - "0.0.0.0"
+  - "--server.headless"
+  - "true"
+  - "--browser.gatherUsageStats"
+  - "false"
+
+env:
+  - name: AGENT_ENDPOINT_NAME
+    value: "maintenance-agent-endpoint"
+  - name: UC_CATALOG
+    value: "utility_ops"
+  - name: UC_SCHEMA
+    value: "asset_intelligence"
+
+# Lakebase connection — configure these as App secrets in the Databricks UI
+# (Apps > maintenance-control-tower > Secrets > Add Secret)
+#
+# Secret keys to configure:
+#   LAKEBASE_HOST     → your-lakebase-host.lakebase.databricks.com
+#   LAKEBASE_PORT     → 5432
+#   LAKEBASE_DATABASE → maintenance_ops
+#   LAKEBASE_USER     → your-lakebase-user
+#   LAKEBASE_PASSWORD → your-lakebase-password
+
+resources:
+  - name: maintenance-agent-endpoint
+    description: "Mosaic AI Model Serving endpoint for the maintenance reasoning agent"
+    serving_endpoint:
+      name: maintenance-agent-endpoint
+      permission: CAN_QUERY

@@ -1,0 +1,211 @@
+work_order_id,asset_id,timestamp,fault_type,part_replaced,technician_id,labor_hours,cost_to_fix,first_time_fix,downtime_hours
+WO-01137,Conveyor_1,2023-03-08T01:33:09,Shaft misalignment,Gearbox oil,T005,3.6,2785.44,False,3.6
+WO-01145,Conveyor_2,2023-03-08T15:43:23,Overheating,Drive belt,T004,10.8,3829.32,False,12.2
+WO-01018,Motor_2,2023-03-08T16:06:39,Overheating,Shaft seal,T003,3.6,563.45,True,3.7
+WO-01162,Turbine_1,2023-03-10T05:40:57,Impeller damage,Blade set,T001,9.5,1181.81,True,10.6
+WO-01209,HVAC_3,2023-03-15T07:43:31,Seal leak,Refrigerant,T003,5.0,3476.56,True,5.8
+WO-01181,Turbine_2,2023-03-23T22:24:34,Corrosion,Blade set,T003,11.7,2759.82,True,14.0
+WO-01028,Motor_3,2023-04-16T03:49:39,Electrical fault,Shaft seal,T004,5.6,1923.79,True,8.2
+WO-01206,HVAC_3,2023-04-18T03:54:06,Seal leak,Condenser coil,T001,4.7,1078.67,False,6.4
+WO-01094,Compressor_1,2023-04-22T07:27:10,Shaft misalignment,Valve kit,T004,6.7,3193.95,True,9.9
+WO-01022,Motor_3,2023-04-25T04:52:39,Belt wear,Shaft seal,T004,5.0,3498.5,True,6.1
+WO-01105,Compressor_1,2023-04-27T13:38:04,Shaft misalignment,Bearing set,T003,10.5,2686.59,True,11.5
+WO-01045,Motor_4,2023-04-29T14:46:44,Belt wear,Terminal block,T003,8.5,3102.74,True,10.3
+WO-01078,Pump_3,2023-04-30T07:36:12,Impeller damage,Impeller,T003,10.3,4069.03,True,11.9
+WO-01001,Motor_1,2023-05-04T14:43:42,Electrical fault,Fan blade,T004,7.7,2354.88,True,6.4
+WO-01019,Motor_2,2023-05-05T03:44:15,Shaft misalignment,Rotor winding,T001,6.4,1249.18,True,6.0
+WO-01125,Compressor_2,2023-05-05T13:35:30,Impeller damage,Air filter,T004,2.5,3283.47,True,2.8
+WO-01174,Turbine_1,2023-05-06T10:09:50,Belt wear,Control valve,T001,11.1,3607.58,True,16.6
+WO-01040,Motor_4,2023-05-18T15:47:09,Overheating,Rotor winding,T005,6.6,3189.05,False,8.1
+WO-01092,Pump_4,2023-05-19T00:24:41,Lubrication failure,Wear ring,T002,1.9,930.7,True,1.9
+WO-01144,Conveyor_2,2023-05-19T13:03:33,Belt wear,Tensioner,T004,4.7,3352.76,True,4.2
+WO-01193,HVAC_1,2023-05-21T07:48:46,Impeller damage,Fan motor,T005,5.2,1860.52,True,6.9
+WO-01113,Compressor_2,2023-05-29T05:42:21,Corrosion,Oil separator,T002,4.1,2090.3,True,5.6
+WO-01179,Turbine_2,2023-05-31T00:04:05,Electrical fault,Control valve,T003,10.4,2662.97,True,12.6
+WO-01120,Compressor_2,2023-05-31T04:29:06,Impeller damage,Air filter,T003,11.4,3791.23,True,16.0
+WO-01112,Compressor_2,2023-06-01T07:34:00,Belt wear,Oil separator,T002,3.5,1949.37,False,3.3
+WO-01149,Conveyor_3,2023-06-02T19:16:17,Lubrication failure,Tensioner,T001,7.7,3823.36,False,7.5
+WO-01165,Turbine_1,2023-06-04T04:37:59,Impeller damage,Blade set,T001,9.2,3236.51,True,10.5
+WO-01103,Compressor_1,2023-06-12T04:24:50,Bearing failure,Air filter,T005,2.0,3000.81,True,2.4
+WO-01044,Motor_4,2023-06-13T02:02:30,Electrical fault,Rotor winding,T004,11.2,2715.68,False,9.5
+WO-01187,Turbine_2,2023-06-15T13:19:09,Seal leak,Control valve,T004,2.4,2336.62,False,3.1
+WO-01198,HVAC_2,2023-06-18T04:20:29,Overheating,Filter set,T001,1.5,3371.8,True,1.8
+WO-01024,Motor_3,2023-07-02T22:44:30,Bearing failure,Terminal block,T004,8.6,3613.18,True,9.5
+WO-01161,Turbine_1,2023-07-05T04:38:57,Vibration imbalance,Blade set,T004,6.8,1729.34,True,6.4
+WO-01010,Motor_2,2023-07-07T23:12:49,Vibration imbalance,Drive bearing,T005,11.4,2672.58,True,11.6
+WO-01109,Compressor_1,2023-07-24T12:06:45,Shaft misalignment,Bearing set,T003,11.4,1279.15,False,16.5
+WO-01122,Compressor_2,2023-07-28T09:05:52,Electrical fault,Oil separator,T004,7.5,2125.55,True,6.6
+WO-01084,Pump_4,2023-07-28T10:52:04,Bearing failure,Bearing,T003,11.1,1981.18,True,15.0
+WO-01123,Compressor_2,2023-07-29T13:40:28,Seal leak,Belt,T004,2.3,2722.2,True,2.2
+WO-01025,Motor_3,2023-07-31T13:21:15,Corrosion,Shaft seal,T003,10.7,2081.58,False,10.3
+WO-01038,Motor_4,2023-08-04T13:01:29,Seal leak,Drive bearing,T002,7.7,3166.03,True,8.8
+WO-01046,Motor_5,2023-08-06T03:27:40,Lubrication failure,Rotor winding,T003,11.8,2955.19,False,12.8
+WO-01036,Motor_4,2023-08-06T12:44:27,Electrical fault,Drive bearing,T003,5.9,3225.06,True,4.8
+WO-01026,Motor_3,2023-08-08T00:03:25,Bearing failure,Shaft seal,T001,6.0,1300.01,True,7.8
+WO-01167,Turbine_1,2023-08-08T07:52:47,Lubrication failure,Lube filter,T002,1.6,3104.22,True,2.3
+WO-01049,Motor_5,2023-08-13T19:00:06,Overheating,Fan blade,T002,9.9,2449.61,True,8.7
+WO-01138,Conveyor_1,2023-08-15T02:56:49,Shaft misalignment,Tensioner,T005,3.1,2708.11,True,4.0
+WO-01177,Turbine_2,2023-08-24T05:30:23,Seal leak,Control valve,T004,2.9,2074.38,False,4.3
+WO-01077,Pump_2,2023-08-28T13:34:28,Corrosion,Bearing,T005,11.6,1654.26,True,11.4
+WO-01043,Motor_4,2023-08-30T22:02:21,Shaft misalignment,Fan blade,T005,2.4,2368.91,True,3.0
+WO-01207,HVAC_3,2023-09-01T03:25:51,Electrical fault,Refrigerant,T001,10.2,4132.91,False,10.4
+WO-01009,Motor_1,2023-09-01T17:13:49,Vibration imbalance,Fan blade,T002,5.8,3818.85,True,7.8
+WO-01070,Pump_2,2023-09-12T11:43:47,Overheating,Wear ring,T004,3.0,2132.95,True,2.8
+WO-01111,Compressor_2,2023-09-12T19:31:01,Seal leak,Bearing set,T005,11.6,3292.07,True,10.2
+WO-01110,Compressor_2,2023-09-13T18:31:01,Overheating,Valve kit,T005,5.1,3862.77,False,7.5
+WO-01050,Motor_5,2023-09-15T13:25:47,Corrosion,Shaft seal,T005,5.5,999.32,False,5.6
+WO-01176,Turbine_2,2023-09-19T23:36:02,Seal leak,Bearing race,T001,7.1,3193.58,False,8.6
+WO-01147,Conveyor_2,2023-09-20T06:27:03,Lubrication failure,Drive belt,T001,5.7,2395.89,True,7.3
+WO-01086,Pump_4,2023-09-23T18:08:54,Seal leak,Wear ring,T005,9.4,2502.95,True,8.5
+WO-01062,Pump_1,2023-09-24T04:50:24,Corrosion,Mechanical seal,T004,5.9,1119.18,True,7.2
+WO-01068,Pump_2,2023-10-01T15:58:12,Corrosion,Impeller,T004,6.3,1263.68,False,9.0
+WO-01093,Pump_4,2023-10-02T09:25:18,Seal leak,Bearing,T004,5.0,1027.14,True,4.3
+WO-01081,Pump_3,2023-10-03T18:53:03,Shaft misalignment,Mechanical seal,T004,5.7,817.63,True,7.5
+WO-01096,Compressor_1,2023-10-10T22:24:35,Electrical fault,Belt,T001,4.7,1355.06,True,4.9
+WO-01065,Pump_1,2023-10-11T14:59:44,Electrical fault,Mechanical seal,T003,9.6,3313.52,True,10.8
+WO-01166,Turbine_1,2023-10-21T06:51:18,Belt wear,Bearing race,T001,10.9,3345.78,True,11.4
+WO-01169,Turbine_1,2023-10-21T13:11:52,Electrical fault,Seal kit,T002,4.3,2378.63,True,5.9
+WO-01172,Turbine_1,2023-10-25T13:13:01,Overheating,Seal kit,T005,2.9,1287.63,True,3.1
+WO-01175,Turbine_1,2023-10-26T02:09:44,Bearing failure,Control valve,T001,8.2,990.91,True,9.2
+WO-01079,Pump_3,2023-10-31T22:38:57,Seal leak,Mechanical seal,T004,9.5,2237.93,False,8.9
+WO-01152,Conveyor_3,2023-11-03T20:31:38,Lubrication failure,Roller,T003,10.2,2988.13,True,14.5
+WO-01014,Motor_2,2023-11-09T09:56:17,Belt wear,Terminal block,T004,3.8,1007.23,True,5.1
+WO-01133,Compressor_3,2023-11-13T03:44:03,Vibration imbalance,Belt,T001,7.6,1617.2,True,10.4
+WO-01135,Compressor_3,2023-11-13T13:53:02,Vibration imbalance,Air filter,T004,5.7,2140.93,True,8.2
+WO-01190,Turbine_2,2023-11-18T07:15:47,Electrical fault,Control valve,T005,4.9,1644.33,True,4.5
+WO-01186,Turbine_2,2023-11-18T22:16:58,Impeller damage,Blade set,T003,8.4,3895.36,True,12.1
+WO-01143,Conveyor_2,2023-11-21T20:12:45,Bearing failure,Drive belt,T005,7.9,3123.61,True,10.8
+WO-01032,Motor_4,2023-11-25T01:40:08,Vibration imbalance,Drive bearing,T002,6.0,3683.98,True,7.2
+WO-01020,Motor_3,2023-11-25T18:16:43,Vibration imbalance,Shaft seal,T001,5.3,2048.53,True,7.4
+WO-01140,Conveyor_1,2023-11-28T19:29:44,Impeller damage,Roller,T005,10.3,3811.0,False,10.8
+WO-01192,HVAC_1,2023-11-29T09:32:16,Overheating,Refrigerant,T004,3.6,2461.99,True,5.4
+WO-01088,Pump_4,2023-12-17T22:18:42,Shaft misalignment,Wear ring,T005,4.6,1145.95,False,4.3
+WO-01057,Motor_6,2023-12-21T19:37:14,Vibration imbalance,Terminal block,T002,3.1,499.23,True,2.9
+WO-01051,Motor_5,2023-12-23T15:38:27,Bearing failure,Terminal block,T001,8.3,4018.42,True,8.2
+WO-01184,Turbine_2,2023-12-24T14:53:31,Bearing failure,Blade set,T003,4.1,1845.59,True,5.6
+WO-01005,Motor_1,2023-12-25T05:27:14,Corrosion,Rotor winding,T005,9.4,1575.9,True,13.4
+WO-01108,Compressor_1,2023-12-25T16:12:43,Electrical fault,Air filter,T004,11.2,1724.9,True,15.4
+WO-01027,Motor_3,2023-12-26T08:19:33,Corrosion,Drive bearing,T004,10.8,1633.0,True,12.6
+WO-01021,Motor_3,2023-12-30T14:22:53,Bearing failure,Shaft seal,T004,4.9,1772.15,True,6.9
+WO-01023,Motor_3,2023-12-31T07:04:26,Bearing failure,Terminal block,T003,3.7,1087.37,True,4.3
+WO-01066,Pump_1,2024-01-01T23:24:50,Vibration imbalance,Impeller,T003,11.8,3019.89,False,9.9
+WO-01153,Conveyor_3,2024-01-16T15:53:32,Lubrication failure,Tensioner,T005,11.5,1865.01,True,12.3
+WO-01031,Motor_4,2024-01-18T19:19:12,Overheating,Shaft seal,T002,9.2,4074.68,True,10.9
+WO-01170,Turbine_1,2024-01-20T20:08:19,Shaft misalignment,Blade set,T001,2.7,2599.57,True,2.2
+WO-01139,Conveyor_1,2024-01-25T16:00:24,Vibration imbalance,Gearbox oil,T005,6.3,3400.03,True,5.1
+WO-01064,Pump_1,2024-02-01T08:13:45,Bearing failure,Impeller,T001,8.0,1863.48,True,7.5
+WO-01136,Conveyor_1,2024-02-02T05:58:10,Bearing failure,Gearbox oil,T002,3.2,489.1,True,3.6
+WO-01163,Turbine_1,2024-02-07T06:40:17,Vibration imbalance,Blade set,T001,5.1,3678.97,True,6.9
+WO-01156,Conveyor_4,2024-02-12T19:20:07,Belt wear,Gearbox oil,T001,6.8,3236.65,True,8.7
+WO-01075,Pump_2,2024-02-13T05:18:54,Belt wear,Bearing,T001,5.3,689.45,True,6.1
+WO-01042,Motor_4,2024-02-18T12:55:40,Lubrication failure,Drive bearing,T002,7.0,1525.04,True,10.0
+WO-01199,HVAC_2,2024-02-18T22:21:56,Lubrication failure,Refrigerant,T004,5.3,792.86,True,4.4
+WO-01180,Turbine_2,2024-02-27T23:47:48,Bearing failure,Seal kit,T002,6.2,2677.08,True,7.7
+WO-01073,Pump_2,2024-02-29T13:30:57,Lubrication failure,Coupling,T002,4.3,3761.13,True,5.7
+WO-01178,Turbine_2,2024-03-12T18:08:34,Overheating,Control valve,T004,8.8,1252.92,False,9.0
+WO-01076,Pump_2,2024-03-16T14:49:46,Lubrication failure,Impeller,T002,3.2,883.23,True,2.7
+WO-01072,Pump_2,2024-03-22T06:43:21,Impeller damage,Wear ring,T004,10.2,3064.41,True,11.6
+WO-01195,HVAC_1,2024-03-22T18:02:11,Overheating,Fan motor,T003,6.6,1592.19,True,7.7
+WO-01082,Pump_3,2024-03-29T05:30:30,Overheating,Impeller,T004,10.8,2597.27,True,12.4
+WO-01067,Pump_1,2024-04-01T22:58:29,Seal leak,Wear ring,T001,10.9,2737.0,True,14.3
+WO-01130,Compressor_3,2024-04-02T04:45:50,Electrical fault,Bearing set,T003,4.5,2128.27,True,3.8
+WO-01008,Motor_1,2024-04-09T19:13:26,Vibration imbalance,Drive bearing,T005,3.6,3080.0,False,4.4
+WO-01183,Turbine_2,2024-04-20T18:04:45,Electrical fault,Seal kit,T003,5.1,3084.05,True,6.4
+WO-01126,Compressor_3,2024-04-26T09:36:01,Shaft misalignment,Oil separator,T005,8.4,2604.52,True,7.8
+WO-01204,HVAC_3,2024-04-27T17:54:15,Lubrication failure,Compressor kit,T003,5.5,869.99,True,4.9
+WO-01015,Motor_2,2024-04-27T22:22:27,Corrosion,Drive bearing,T003,6.9,3927.21,True,9.7
+WO-01151,Conveyor_3,2024-05-04T11:15:41,Impeller damage,Tensioner,T001,5.1,859.17,True,4.4
+WO-01013,Motor_2,2024-05-10T13:05:15,Electrical fault,Rotor winding,T001,3.0,2476.4,True,3.6
+WO-01035,Motor_4,2024-05-10T16:52:57,Belt wear,Fan blade,T002,6.2,3422.33,True,9.3
+WO-01150,Conveyor_3,2024-05-12T23:36:24,Corrosion,Gearbox oil,T005,5.6,3780.35,True,6.6
+WO-01129,Compressor_3,2024-05-17T11:49:14,Shaft misalignment,Oil separator,T003,3.7,1649.26,False,3.2
+WO-01196,HVAC_1,2024-05-22T21:29:43,Shaft misalignment,Fan motor,T004,11.4,1206.0,True,9.5
+WO-01200,HVAC_2,2024-05-24T21:29:04,Corrosion,Condenser coil,T002,10.8,2820.26,True,16.0
+WO-01116,Compressor_2,2024-05-31T02:02:58,Corrosion,Valve kit,T004,5.7,3840.9,True,6.2
+WO-01189,Turbine_2,2024-06-06T04:35:21,Impeller damage,Blade set,T004,8.6,4075.5,True,9.4
+WO-01107,Compressor_1,2024-06-09T06:52:13,Vibration imbalance,Air filter,T002,8.4,1258.63,True,12.5
+WO-01037,Motor_4,2024-06-14T19:41:19,Bearing failure,Terminal block,T002,11.7,1355.22,True,12.6
+WO-01208,HVAC_3,2024-06-15T01:54:01,Impeller damage,Refrigerant,T002,7.6,3605.4,True,6.8
+WO-01059,Pump_1,2024-06-15T08:26:58,Corrosion,Wear ring,T004,9.4,3297.74,True,8.2
+WO-01168,Turbine_1,2024-06-19T06:21:50,Electrical fault,Seal kit,T004,6.3,2839.63,True,5.7
+WO-01102,Compressor_1,2024-06-22T13:04:06,Belt wear,Oil separator,T003,4.8,3830.86,True,5.4
+WO-01090,Pump_4,2024-06-26T06:32:17,Corrosion,Mechanical seal,T001,8.6,2465.28,False,11.7
+WO-01159,Conveyor_4,2024-07-02T07:14:44,Overheating,Roller,T005,11.5,3020.02,True,12.7
+WO-01148,Conveyor_3,2024-07-05T23:43:37,Vibration imbalance,Drive belt,T004,2.6,3584.25,True,2.8
+WO-01173,Turbine_1,2024-07-08T04:39:25,Overheating,Control valve,T001,7.9,3887.47,True,8.5
+WO-01191,Turbine_2,2024-07-11T07:11:57,Corrosion,Seal kit,T003,11.2,1766.37,True,13.1
+WO-01053,Motor_6,2024-07-11T16:32:16,Vibration imbalance,Terminal block,T001,11.4,3879.49,False,12.8
+WO-01134,Compressor_3,2024-07-14T12:37:13,Lubrication failure,Air filter,T002,4.3,1882.03,False,3.5
+WO-01029,Motor_3,2024-07-15T08:34:34,Corrosion,Fan blade,T001,6.9,3025.99,False,5.8
+WO-01055,Motor_6,2024-07-19T19:36:06,Shaft misalignment,Rotor winding,T005,3.2,1423.51,True,4.1
+WO-01185,Turbine_2,2024-07-20T10:17:25,Impeller damage,Bearing race,T004,2.7,861.3,True,3.4
+WO-01003,Motor_1,2024-08-02T04:10:50,Vibration imbalance,Fan blade,T003,10.4,1270.16,True,11.2
+WO-01039,Motor_4,2024-08-02T12:34:55,Impeller damage,Fan blade,T001,6.0,2622.59,True,5.6
+WO-01114,Compressor_2,2024-08-03T13:23:17,Impeller damage,Bearing set,T005,7.4,2590.12,True,7.6
+WO-01091,Pump_4,2024-08-03T15:17:34,Belt wear,Impeller,T002,11.8,4387.7,True,10.4
+WO-01124,Compressor_2,2024-08-13T05:34:59,Lubrication failure,Valve kit,T005,8.5,1145.73,False,12.6
+WO-01047,Motor_5,2024-08-17T02:17:58,Bearing failure,Drive bearing,T001,9.4,3149.06,True,11.9
+WO-01061,Pump_1,2024-08-23T07:58:26,Seal leak,Coupling,T001,6.7,1736.38,True,7.2
+WO-01074,Pump_2,2024-08-25T12:32:34,Lubrication failure,Wear ring,T005,5.3,3344.07,False,4.7
+WO-01115,Compressor_2,2024-08-28T21:52:43,Overheating,Bearing set,T002,10.7,4246.52,True,13.3
+WO-01160,Turbine_1,2024-09-03T07:20:55,Corrosion,Seal kit,T004,2.4,3579.84,False,3.2
+WO-01118,Compressor_2,2024-09-11T05:30:26,Electrical fault,Oil separator,T004,5.9,1642.57,True,8.2
+WO-01141,Conveyor_1,2024-09-18T17:36:50,Belt wear,Pulley,T001,7.8,3593.35,False,9.6
+WO-01154,Conveyor_4,2024-09-19T18:51:43,Corrosion,Gearbox oil,T001,11.6,3445.01,True,17.2
+WO-01119,Compressor_2,2024-09-20T07:06:48,Corrosion,Bearing set,T005,6.6,2556.78,False,6.3
+WO-01007,Motor_1,2024-09-21T05:33:29,Belt wear,Fan blade,T002,5.9,2652.94,True,7.6
+WO-01056,Motor_6,2024-09-29T17:11:07,Electrical fault,Rotor winding,T005,10.1,1249.76,True,8.2
+WO-01083,Pump_3,2024-10-03T03:59:25,Electrical fault,Impeller,T005,7.2,2876.43,False,7.0
+WO-01194,HVAC_1,2024-10-06T22:01:59,Bearing failure,Fan motor,T003,5.6,1358.86,True,8.1
+WO-01132,Compressor_3,2024-10-08T13:31:39,Bearing failure,Valve kit,T003,4.5,1033.13,True,6.7
+WO-01197,HVAC_1,2024-10-15T11:06:51,Belt wear,Refrigerant,T002,9.2,3922.96,True,9.5
+WO-01121,Compressor_2,2024-10-18T14:20:03,Impeller damage,Valve kit,T004,9.9,3145.3,True,8.4
+WO-01099,Compressor_1,2024-10-20T03:03:24,Seal leak,Belt,T003,9.3,3621.45,True,10.3
+WO-01104,Compressor_1,2024-10-20T14:34:33,Electrical fault,Oil separator,T001,4.4,3682.27,True,3.8
+WO-01063,Pump_1,2024-10-26T07:25:44,Electrical fault,Impeller,T003,2.0,994.96,True,1.7
+WO-01048,Motor_5,2024-10-29T20:24:21,Impeller damage,Drive bearing,T005,11.0,2719.66,True,10.8
+WO-01034,Motor_4,2024-10-29T22:47:38,Belt wear,Terminal block,T003,6.2,2308.34,True,7.6
+WO-01142,Conveyor_2,2024-11-04T21:51:40,Lubrication failure,Drive belt,T005,11.8,3013.3,True,13.6
+WO-01127,Compressor_3,2024-11-07T06:13:56,Corrosion,Valve kit,T003,6.1,2840.45,True,6.1
+WO-01030,Motor_4,2024-11-08T05:52:36,Overheating,Shaft seal,T002,10.2,2399.84,False,13.1
+WO-01188,Turbine_2,2024-11-08T07:40:36,Seal leak,Lube filter,T001,6.3,1143.66,True,8.9
+WO-01012,Motor_2,2024-11-09T21:42:04,Corrosion,Shaft seal,T002,11.6,2879.49,True,12.7
+WO-01000,Motor_1,2024-11-10T13:25:11,Lubrication failure,Terminal block,T005,7.7,3111.0,True,8.3
+WO-01097,Compressor_1,2024-11-11T06:08:08,Seal leak,Air filter,T004,2.6,1275.2,True,3.3
+WO-01131,Compressor_3,2024-11-12T11:10:27,Belt wear,Valve kit,T001,3.0,2483.61,False,2.8
+WO-01106,Compressor_1,2024-11-15T11:31:19,Seal leak,Belt,T001,2.0,391.18,False,2.8
+WO-01182,Turbine_2,2024-11-18T22:37:33,Vibration imbalance,Control valve,T004,10.0,3082.69,True,14.1
+WO-01098,Compressor_1,2024-11-23T06:01:55,Shaft misalignment,Air filter,T001,11.2,1266.21,True,12.6
+WO-01004,Motor_1,2024-11-25T19:41:50,Shaft misalignment,Fan blade,T004,8.4,3430.66,True,8.5
+WO-01089,Pump_4,2024-11-25T22:11:53,Overheating,Impeller,T004,10.0,1336.03,True,12.8
+WO-01087,Pump_4,2024-11-29T04:39:12,Belt wear,Wear ring,T001,3.7,1210.91,True,5.5
+WO-01011,Motor_2,2024-12-04T03:55:31,Corrosion,Terminal block,T002,7.5,1038.18,False,10.8
+WO-01101,Compressor_1,2024-12-04T23:07:30,Belt wear,Oil separator,T003,12.0,1418.5,True,17.9
+WO-01052,Motor_6,2024-12-08T14:02:15,Lubrication failure,Shaft seal,T005,7.7,1662.59,True,9.3
+WO-01128,Compressor_3,2024-12-09T04:25:09,Lubrication failure,Belt,T005,5.8,3823.91,True,7.3
+WO-01203,HVAC_2,2024-12-10T01:02:35,Corrosion,Condenser coil,T005,4.3,1531.67,True,5.9
+WO-01033,Motor_4,2024-12-15T16:32:01,Bearing failure,Drive bearing,T002,2.6,3178.61,True,3.8
+WO-01205,HVAC_3,2024-12-16T04:23:49,Belt wear,Filter set,T005,5.7,1127.18,True,5.4
+WO-01202,HVAC_2,2024-12-18T20:13:40,Shaft misalignment,Fan motor,T004,2.0,2194.41,False,1.8
+WO-01006,Motor_1,2024-12-18T23:21:28,Corrosion,Shaft seal,T001,2.6,780.02,True,3.8
+WO-01071,Pump_2,2024-12-20T01:59:48,Seal leak,Wear ring,T004,6.8,1483.25,False,6.6
+WO-01146,Conveyor_2,2024-12-21T01:09:14,Belt wear,Pulley,T001,7.4,1411.16,True,7.1
+WO-01157,Conveyor_4,2024-12-21T21:41:17,Impeller damage,Drive belt,T004,9.3,3200.24,False,12.6
+WO-01095,Compressor_1,2024-12-22T19:19:56,Overheating,Air filter,T005,8.1,3048.54,True,10.4
+WO-01117,Compressor_2,2025-01-05T08:37:26,Shaft misalignment,Belt,T002,1.6,1611.33,True,2.3
+WO-01155,Conveyor_4,2025-01-11T01:51:29,Corrosion,Gearbox oil,T002,8.5,1233.09,True,12.5
+WO-01080,Pump_3,2025-01-15T16:01:12,Belt wear,Bearing,T001,5.4,3058.91,True,7.9
+WO-01041,Motor_4,2025-01-17T01:44:57,Vibration imbalance,Shaft seal,T001,9.6,3840.72,True,14.4
+WO-01201,HVAC_2,2025-01-23T23:54:11,Belt wear,Filter set,T003,1.7,2273.55,True,2.0
+WO-01002,Motor_1,2025-01-25T08:26:38,Lubrication failure,Shaft seal,T003,4.4,3482.08,True,6.6
+WO-01069,Pump_2,2025-01-26T13:11:39,Shaft misalignment,Impeller,T001,11.0,1405.48,True,12.1
+WO-01085,Pump_4,2025-01-27T00:49:39,Seal leak,Coupling,T002,1.8,2459.48,True,2.2
+WO-01171,Turbine_1,2025-01-30T13:19:30,Impeller damage,Bearing race,T002,5.9,1577.56,True,5.8
+WO-01016,Motor_2,2025-01-30T14:12:51,Shaft misalignment,Shaft seal,T002,6.9,3492.87,True,7.7
+WO-01158,Conveyor_4,2025-01-31T12:09:33,Shaft misalignment,Gearbox oil,T004,7.9,2647.78,True,7.3
+WO-01054,Motor_6,2025-02-01T16:17:21,Lubrication failure,Terminal block,T001,3.1,1673.66,False,2.9
+WO-01017,Motor_2,2025-02-05T20:40:11,Lubrication failure,Drive bearing,T002,3.6,3458.19,True,3.2
+WO-01060,Pump_1,2025-02-09T09:13:06,Lubrication failure,Coupling,T005,11.5,4446.13,True,9.4
+WO-01100,Compressor_1,2025-02-14T16:31:30,Shaft misalignment,Belt,T005,2.5,714.17,True,2.8
+WO-01164,Turbine_1,2025-02-23T06:06:21,Seal leak,Bearing race,T005,9.5,2281.28,False,14.2
+WO-01058,Pump_1,2025-02-28T16:14:35,Lubrication failure,Wear ring,T001,9.6,4103.97,False,12.1
